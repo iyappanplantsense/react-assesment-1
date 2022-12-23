@@ -38,7 +38,11 @@ export default function Popup({ open, handleClose }) {
             'schema': schemaData
         }
         console.log("handleSubmit", data)
-        alert(JSON.stringify(data))
+     fetch('https://webhook.site/6a577d20-9448-4a03-a142-73b6752f1ff4',{method:'POST',headers:{'Content-Type': 'application/json',mode:'no-cors'},body:JSON.stringify(data)})
+       .then(res => res.json())
+       .then(res => console.log("Response",res))
+       .catch(err => console.log("errr",err))
+
     }
 
     useEffect(()=>{
